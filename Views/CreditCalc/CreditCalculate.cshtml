@@ -1,0 +1,28 @@
+﻿@model Zip.Credit.Models.CreditCalculateModel;
+@{
+    ViewData["Title"] = "Available Credit";
+}
+<h2>Available Credit</h2>
+@using (Html.BeginForm("CreditCalculate", "CreditCalc", FormMethod.Post))
+{
+    <div>
+        Enter bureau score: @Html.TextBoxFor(m => m.BureauScore)
+    </div>
+    <div>
+        Enter missed payments:  @Html.TextBoxFor(m => m.MissedPaymentCount)
+    </div>
+    <div>
+        Enter completed payments: @Html.TextBoxFor(m => m.CompletedPaymentCount)
+    </div>
+    <div>
+        Enter age:  @Html.TextBoxFor(m => m.AgeInYears)
+    </div>
+    <div>
+        <input type="submit" value="Calculate Available Credit" />
+    </div>
+    <div>
+        Available credit(in $) : @Html.DisplayFor(m => m.AvailableCredit)
+    </div>
+
+}
+
